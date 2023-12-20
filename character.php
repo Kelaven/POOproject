@@ -6,6 +6,17 @@ class Character {
     private int $health;
     private int $rage;
 
+    // * création de la méthode magique construct
+    /**
+     * méthode magique pour donner une valeur aux attributs health et rage
+     * @param int $health
+     * @param int $rage
+     */
+    function __construct(int $health = 100, int $rage = 0){
+        $this -> health = $health;
+        $this -> rage = $rage;
+    }
+
     // * création des méthodes pour accéder aux attributs (= getters)
     /**
      * méthode permettant de retourner la valeur de l'attribut health
@@ -44,16 +55,20 @@ class Character {
 
 };
 
-// * création d'un objet à partir de la classe
-$character = new Character;
+// ! créer un personnage avec les méthodes normales : 
+// // * création d'un objet à partir de la classe
+// $character = new Character;
 
-// * modifier la valeur des attributs
-$character -> set_health(100);
-$character -> set_rage(100);
+// // * modifier la valeur des attributs
+// $character -> set_health(100);
+// $character -> set_rage(100);
 
-// * accéder aux attributs
-$character -> get_health();
-$character -> get_rage();
+// // * accéder aux attributs
+// $character -> get_health();
+// $character -> get_rage();
+// var_dump($character);
+
+// ! créer un personnage avec la méthode magique : 
+$character = new Character(rage:80);
 var_dump($character);
 
-?>
