@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__.'/Character.php';
+
 // * création de la classe fille
 class Hero extends Character {
 
@@ -8,6 +10,7 @@ class Hero extends Character {
     private float $weaponDamage;
     private string $shield;
     private float $shieldValue;
+    // private string $infos;
 
     // * méthode magique
     /**
@@ -17,7 +20,9 @@ class Hero extends Character {
      * @param string $shield
      * @param float $shieldValue
      */
-    public function __construct(string $weapon, float $weaponDamage, string $shield, float $shieldValue){
+    public function __construct(int $health, int $rage, string $weapon, float $weaponDamage, string $shield, float $shieldValue){
+        // accéder à la méthode magique de Caracter.php
+        parent::__construct($health, $rage);
         $this->weapon = $weapon;
         $this->weaponDamage = $weaponDamage;
         $this->shield = $shield;
@@ -92,4 +97,26 @@ class Hero extends Character {
         return $this->shieldValue;
     }
 
+    // * méthode pour retourner les infos du héro crée
+    public function __toString(): string{
+        return 'le héros a une santé de '.$this->get_health() ;
+    }
+
+
 }
+
+// ! construire le héro avec la méthode magique :
+$hero = new Hero(110, 10, 'épée', 17, 'bouclier en carton', 1);
+
+
+// ! construire le héro avec les méthodes normales : 
+// $hero = new Hero;
+// $hero->set_health(200);
+// $hero->set_rage(120);
+// $hero->set_weapon('épée en bois');
+// $hero->set_weaponDamage(1.2);
+// $hero->set_shield('bouclier étoile');
+// $hero->set_shieldValue(300);
+var_dump($hero);
+
+echo $hero;

@@ -69,6 +69,6 @@ class Character {
 // var_dump($character);
 
 // ! créer un personnage avec la méthode magique : 
-$character = new Character(rage:80);
-var_dump($character);
+// $character = new Character(rage:80);
+// var_dump($character);
 
