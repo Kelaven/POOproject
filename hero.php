@@ -10,6 +10,8 @@ class Hero extends Character {
     private float $weaponDamage;
     private string $shield;
     private float $shieldValue;
+    private float $attacked;
+    private float $upRage;
     // private string $infos;
 
     // * méthode magique
@@ -97,16 +99,39 @@ class Hero extends Character {
         return $this->shieldValue;
     }
 
+
     // * méthode pour retourner les infos du héro crée
     public function __toString(): string{
-        return 'le héros a une santé de '.$this->get_health() ;
+        return 'Le héros a une santé de '.$this->get_health().', une rage de '.$this->get_rage().', une arme de type '.$this->get_weapon().', qui fait des dégats de '.$this->get_weaponDamage().', un bouclier de type '.$this->get_shield().', qui absorbe '.$this->get_shieldValue().' points de dégâts. Le héro se fait attaquer et il ne lui reste plus que '.$this->attacked.' points de vie ! Sa rage est montée à '.$this->upRage.' d\'un coup !';
     }
+
+
+    // * méthode attacked
+    public function set_attacked(float $attacked){
+        $attackedConversion = $this->get_health() - ($attacked - $this->get_shieldValue());
+        $this->attacked = $attackedConversion;
+        // var_dump($this->attacked);
+        // die;
+        
+        // * Pour chaque coup reçu, il faudra faire gagner de la rage à notre Héros
+        if (!empty($attacked)) {
+            $rage = $this->get_rage() + 30;
+            $this->upRage = $rage;
+        }
+    }
+
+
 
 
 }
 
 // ! construire le héro avec la méthode magique :
 $hero = new Hero(110, 10, 'épée', 17, 'bouclier en carton', 1);
+
+
+// ! le héro se fait attaquer
+$hero->set_attacked(20);
+
 
 
 // ! construire le héro avec les méthodes normales : 
@@ -117,6 +142,8 @@ $hero = new Hero(110, 10, 'épée', 17, 'bouclier en carton', 1);
 // $hero->set_weaponDamage(1.2);
 // $hero->set_shield('bouclier étoile');
 // $hero->set_shieldValue(300);
-var_dump($hero);
+
+
+// var_dump($hero);
 
 echo $hero;
