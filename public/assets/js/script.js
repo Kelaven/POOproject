@@ -6,6 +6,8 @@ const replayBtn = document.getElementById('replayBtn');
 const gameTxt = document.querySelector('p');
 const herosDead = document.getElementById('hero__dead');
 const orcDead = document.getElementById('orc__dead');
+const orcImg = document.querySelector('.character__video--orc');
+const heroImg = document.querySelector('.character__video--hero');
 
 
 
@@ -52,13 +54,19 @@ playBtn.addEventListener('click', () => {
 
 
     // * affiher la tombe du perdant
-    if (winner == "orc") {
-        herosDead.classList.remove('d-none');
-        // orcDead.classList.add('d-none');
-    } else if (winner == "hero"){
-        orcDead.classList.remove('d-none');
-        // herosDead.classList.add('d-none');
-    } 
+    setTimeout(() => {
+        if (winner == "orc") {
+            herosDead.classList.remove('d-none');
+            herosDead.classList.add('dead__fade-int');
+            heroImg.classList.add('d-none');
+            // orcDead.classList.add('d-none');
+        } else if (winner == "hero"){
+            orcDead.classList.remove('d-none');
+            orcDead.classList.add('dead__fade-int');
+            orcImg.classList.add('d-none');
+            // herosDead.classList.add('d-none');
+        } 
+    }, 6000);
 
 
 

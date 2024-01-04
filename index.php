@@ -48,7 +48,7 @@ $orc = new Orc(250, 0);
                 <video controls class="character__video character__video--hero">
                     <source src="/public/assets/img/heros-resize.mp4" type=video/mp4>
                 </video>
-                <img class="d-none ps-xl-5" id="hero__dead" src="/public/assets/img/heros-dead-resize.jpg" alt="pierre tombale de notre héros, RIP">
+                <img class="d-none ps-xl-5 ms-xl-1" id="hero__dead" src="/public/assets/img/heros-dead-resize.jpg" alt="pierre tombale de notre héros, RIP">
             </div>
             <div class="col-12 col-xl-4 d-flex align-items-center order-3 order-xl-2 justify-content-center">
                 <p class="d-none">
@@ -98,7 +98,7 @@ $orc = new Orc(250, 0);
                 <video controls class="character__video character__video--orc">
                     <source src="/public/assets/img/orc-resize.mp4" type=video/mp4>
                 </video>
-                <img class="d-none pe-xl-5 me-xl-5" id="orc__dead" src="/public/assets/img/orc-dead-resize.jpg" alt="pierre tombale de notre orc, RIP">
+                <img class="d-none pe-xl-5 me-xl-3" id="orc__dead" src="/public/assets/img/orc-dead-resize.jpg" alt="pierre tombale de notre orc, RIP">
             </div>
         </div>
     </div>
