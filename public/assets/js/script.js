@@ -1,13 +1,16 @@
 // ! Variables
 
-const charactersVideos = document.querySelectorAll('.character__video');
+// Les boutons et le texte :
 const playBtn = document.getElementById('playBtn');
 const replayBtn = document.getElementById('replayBtn');
 const gameTxt = document.querySelector('.txt');
-const herosDead = document.getElementById('hero__dead');
-const orcDead = document.getElementById('orc__dead');
+// Les vidéos :
+const charactersVideos = document.querySelectorAll('.character__video');
 const orcImg = document.querySelector('.character__video--orc');
 const heroImg = document.querySelector('.character__video--hero');
+// Les tombes : 
+const herosDead = document.getElementById('hero__dead');
+const orcDead = document.getElementById('orc__dead');
 
 
 
@@ -27,35 +30,28 @@ charactersVideos.forEach(characterVideo => {
 playBtn.addEventListener('click', () => {
     playBtn.classList.add('playBtn__fade-out');
     setTimeout(() => {
-        playBtn.classList.add('d-none');
+        playBtn.classList.add('d-none'); // je le d-none après l'animation de fade-out
     }, 500);
 
 
     setTimeout(() => {
-        gameTxt.classList.remove('d-none');
+        gameTxt.classList.remove('d-none'); // j'affiche le texte
 
-
-        // activer les vidéos
-        charactersVideos.forEach(characterVideo => {
+        charactersVideos.forEach(characterVideo => { // j'active les vidéos
                 characterVideo.play();
-    
-                characterVideo.addEventListener('ended', () => { // quand la vidéo est finie
-    
-                })
         })
-        
     }, 500);
 
 
     setTimeout(() => {
-    replayBtn.classList.remove('d-none');
+    replayBtn.classList.remove('d-none'); // j'affiche le bouton rejouer à la fin
     replayBtn.classList.add('replayBtn__fade-int');
     }, 8000);
 
 
     // * affiher la tombe du perdant
     setTimeout(() => {
-        if (winner == "orc") {
+        if (winner == "orc") { // en utilisant la variable définie dans index.php
             herosDead.classList.remove('d-none');
             herosDead.classList.add('dead__fade-int');
             setTimeout(() => {

@@ -8,7 +8,7 @@ $hero = new Hero(1000, 0, 'épée acérée', 150, 'armure en bronze', 450);
 $orc = new Orc(250, 0);
 
 ?>
-<!-- if s_server==post -->
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -33,8 +33,10 @@ $orc = new Orc(250, 0);
             </div>
             <div class="col-12 text-center pt-3">
                 <div id="button__container">
-                    <button id="playBtn" type="button" class="btn btn-dark">Jouer</button>
-                    <button id="replayBtn" type="button" class="btn btn-dark d-none">Rejouer</button>
+                    <button id="playBtn" type="button" class="btn btn-dark">Combattre</button>
+                    <form method="post">
+                        <button id="replayBtn" type="submit" class="btn btn-dark d-none">Rejouer</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -42,7 +44,7 @@ $orc = new Orc(250, 0);
 
 
 
-    <div class="container-fluid container__board">
+    <div class="container-fluid">
         <div class="row text-center pt-3">
             <div class="resize--mobile col-6 col-xl-4 p-0 order-1 order-xl-1 character__container ps-xl-5">
                 <video controls class="character__video character__video--hero">
@@ -67,7 +69,6 @@ $orc = new Orc(250, 0);
                         // ! Si le héros n'a plus de points de vie
                         if ($hero->get_health() <= 0) {
                             echo '<span class="resultTxt">Malgré tous ses efforts, l\'ange succombe à ses blessures !</span>';
-                            // $win = 2;
                             $win = "orc";
                             break;
                         }
