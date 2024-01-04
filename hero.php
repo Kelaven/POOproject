@@ -119,7 +119,4 @@ class Hero extends Character {
         $this->set_rage($rage);
     }
 
-
-
-
 }

@@ -14,11 +14,15 @@ while ($hero->get_health() > 0 && $orc->get_health() > 0) {
     $orc_attack = $orc->attack();
     $hero->attacked($orc_attack);
 
-    echo 'L\'orc frappe le héros avec une puissance de '. $orc_attack . '. Les points de vie du héros tombent à '. $hero->get_health() . ' ! Sa rage augmente à ' . $hero->get_rage() . '.<br><br>';
+    if ($hero->get_health() > 0) { // condition pour que la rage n'augment pas si le héros n'a plus de points de vie
+        echo 'L\'orc frappe le héros avec une puissance de '. $orc_attack . '. Les points de vie du héros tombent à '. $hero->get_health() . ' ! Sa rage augmente à ' . $hero->get_rage() . '.<br><br>';
+    } else {
+        echo 'L\'orc frappe le héros avec une puissance de '. $orc_attack . '. Les points de vie du héros tombent à '. $hero->get_health() . ' ! <br> <br>';
+    }
     
     // ! Si le héros n'a plus de points de vie
     if ($hero->get_health() <= 0) {
-        echo 'Malgré tous ses efforts et toute sa rage accumulée, le héros succombe à ses blessures !';
+        echo 'Malgré tous ses efforts, le héros succombe à ses blessures !';
         break;
     }
 
