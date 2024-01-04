@@ -82,8 +82,8 @@ button{
 
 /* ! Animations */
 
-.txt{
-    animation: fade-in 5s;
+.txt {
+    animation: fade-in 15s cubic-bezier(0.42, 0, 0.58, 1);
 }
 .playBtn__fade-out{ /* js class */
     animation: fade-btn-out 0.5s;
@@ -102,13 +102,21 @@ button{
 
 
 @keyframes fade-in {
-    from{
+    0% {
         opacity: 0;
         transform: translateY(20px);
-        transition: opacity 1s cubic-bezier(0.42, 0, 0.58, 1), transform 1s cubic-bezier(0.42, 0, 0.58, 1);
-    } to {
+    }
+    40% {
         opacity: 1;
-        transform: translateY(0px);
+        transform: translateY(0);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 @keyframes fade-btn-out {
