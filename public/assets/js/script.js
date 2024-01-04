@@ -14,7 +14,30 @@ const orcDead = document.getElementById('orc__dead');
 
 
 
+// ? Fonction d'animation de texte
+// function animateText() {
+//     // Crée une instance de SplitType avec la classe .txt à l'intérieur de la fonction
+//     const split = new SplitType('.txt', { types: 'lines', linesClass: 'line' });
 
+//     // Anime chaque ligne individuellement avec GSAP
+//     gsap.from('.line', { // Utilise la classe .line pour cibler spécifiquement les lignes
+//         duration: 1,
+//         opacity: 0,
+//         stagger: 0.1,
+//         y: 20,
+//         ease: 'power2.out',
+//         onComplete: function () {
+//             // Code à exécuter à la fin de l'animation
+//             // Peut être la logique de jeu ou d'autres actions
+//         },
+//         onStart: function () {
+//             // Réinitialise le contenu des balises avec la classe "br-keep" à leur état original
+//             document.querySelectorAll('.br-keep').forEach(br => {
+//                 br.outerHTML = '<br class="br-keep">';
+//             });
+//         },
+//     });
+// }
 
 
 // ! Evenements
@@ -36,7 +59,7 @@ playBtn.addEventListener('click', () => {
 
     setTimeout(() => {
         gameTxt.classList.remove('d-none'); // j'affiche le texte
-
+        // animateText();
         charactersVideos.forEach(characterVideo => { // j'active les vidéos
                 characterVideo.play();
         })
