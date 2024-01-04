@@ -10,11 +10,12 @@ class Orc extends Character{
     // * méthode magique
     public function __construct(int $health, int $rage){
         parent::__construct($health, $rage);
+        // $this->damage = $damage;
+    }
+    public function __toString(): string{
+        return 'L\'orc a une santé de '.$this->get_health().', une rage de '.$this->get_rage();
     }
 
-    // public function __toString(){
-    //     return 'test';
-    // }
 
     // * méthodes
     public function get_damage(): float{
@@ -23,8 +24,11 @@ class Orc extends Character{
     public function set_damage(float $damage){
         $this->damage = $damage;
     }
+    public function attack(): float{
+        $this->set_damage(rand(600, 800));
+        return $this->get_damage();
+    }
 
 }
 
-$orc = new Orc(200, 120);
-var_dump($orc);
+

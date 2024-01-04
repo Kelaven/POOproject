@@ -54,21 +54,3 @@ class Character {
     }
 
 };
-
-// ! créer un personnage avec les méthodes normales : 
-// // * création d'un objet à partir de la classe
-// $character = new Character;
-
-// // * modifier la valeur des attributs
-// $character -> set_health(100);
-// $character -> set_rage(100);
-
-// // * accéder aux attributs
-// $character -> get_health();
-// $character -> get_rage();
-// var_dump($character);
-
-// ! créer un personnage avec la méthode magique : 
-// $character = new Character(rage:80);
-// var_dump($character);
-
