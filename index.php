@@ -8,7 +8,7 @@ $hero = new Hero(1000, 0, 'épée acérée', 150, 'armure en bronze', 450);
 $orc = new Orc(250, 0);
 
 ?>
-
+<!-- if s_server==post -->
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -44,8 +44,8 @@ $orc = new Orc(250, 0);
 
     <div class="container-fluid container__board">
         <div class="row text-center pt-3">
-            <div class="col-6 col-xl-4 p-0 order-1 order-xl-1 character__container d-flex ps-xl-5">
-                <video controls class="character__video">
+            <div class="resize--mobile col-6 col-xl-4 p-0 order-1 order-xl-1 character__container ps-xl-5">
+                <video controls class="character__video character__video--hero">
                     <source src="/public/assets/img/heros-resize.mp4" type=video/mp4>
                 </video>
                 <img class="d-none ps-xl-5" id="hero__dead" src="/public/assets/img/heros-dead-resize.jpg" alt="pierre tombale de notre héros, RIP">
@@ -67,7 +67,8 @@ $orc = new Orc(250, 0);
                         // ! Si le héros n'a plus de points de vie
                         if ($hero->get_health() <= 0) {
                             echo 'Malgré tous ses efforts, l\'ange succombe à ses blessures !';
-                            $win = 'orc';
+                            // $win = 2;
+                            $win = "orc";
                             break;
                         }
 
@@ -86,14 +87,14 @@ $orc = new Orc(250, 0);
                         // ! Si l'orc n'a plus de points de vie
                         if ($orc->get_health() <= 0) {
                             echo 'Le démon a ardemment combattu mais il perd finalement le combat !';
-                            $win = 'hero';
+                            $win = "hero";
                             break;
                         }
                     }
                     ?>
                 </p>
             </div>
-            <div class="col-6 col-xl-4 p-0 order-2 order-xl-3">
+            <div class="col-6 col-xl-4 p-0 order-2 order-xl-3 character__container">
                 <video controls class="character__video character__video--orc">
                     <source src="/public/assets/img/orc-resize.mp4" type=video/mp4>
                 </video>
@@ -112,8 +113,7 @@ $orc = new Orc(250, 0);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- js -->
     <script>
-        let winner = <?php echo $win ?>
-
+        let winner = "<?php echo $win ?>"
     </script>
     <script src="/public/assets/js/script.js"></script>
 </body>

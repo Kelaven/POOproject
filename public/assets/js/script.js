@@ -50,6 +50,18 @@ playBtn.addEventListener('click', () => {
     replayBtn.classList.add('replayBtn__fade-int');
     }, 6000);
 
+
+    // * affiher la tombe du perdant
+    if (winner == "orc") {
+        herosDead.classList.remove('d-none');
+        // orcDead.classList.add('d-none');
+    } else if (winner == "hero"){
+        orcDead.classList.remove('d-none');
+        // herosDead.classList.add('d-none');
+    } 
+
+
+
 })
 
 // * recharger la page au click sur rejouer
@@ -58,14 +70,3 @@ replayBtn.addEventListener('click', () => {
     location.reload();
 })
 
-
-if (winner == 'orc') {
-    orcDead.classList.add('d-none');
-    herosDead.classList.remove('d-none');
-} else if (winner == 'hero'){
-    herosDead.classList.add('d-none');
-    orcDead.classList.remove('d-none');
-} else {
-    orcDead.classList.add('d-none');
-    herosDead.classList.add('d-none');
-}
