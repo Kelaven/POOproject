@@ -17,7 +17,7 @@ $orc = new Orc(250, 0);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Descente des ombres</title>
     <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <!-- style -->
     <link rel="stylesheet" href="/public/assets/css/style.css">
     <!-- bootstrap -->
@@ -25,7 +25,6 @@ $orc = new Orc(250, 0);
 </head>
 
 <body>
-
     <div class="container">
         <div class="row">
             <div class="col-12 text-center pt-2">

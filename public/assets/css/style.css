@@ -1,4 +1,8 @@
 /* ! Général */
+body {
+    background-image: url('/public/assets/img/opacity-3-underworld-background.jpg');
+    background-size: cover;
+}
 
 h1, button, .resultTxt, .txt{
     font-family: 'Cinzel', serif !important;
@@ -6,8 +10,11 @@ h1, button, .resultTxt, .txt{
 h1, .resultTxt{
     font-weight: 900 !important;
 }
+.txt{
+    font-weight: 500 !important;
+}
 .resultTxt{
-    color: red;
+    color: #5E1E1F;
 }
 #button__container{ /* pour garder l'espace au d-none et éviter l'effet de bug */
     height: 38px;
