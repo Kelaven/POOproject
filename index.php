@@ -50,8 +50,8 @@ $orc = new Orc(250, 0);
                 </video>
                 <img class="d-none ps-xl-5 ms-xl-1" id="hero__dead" src="/public/assets/img/heros-dead-resize.jpg" alt="pierre tombale de notre héros, RIP">
             </div>
-            <div class="col-12 col-xl-4 d-flex align-items-center order-3 order-xl-2 justify-content-center">
-                <p class="d-none">
+            <div class="col-12 col-xl-4 d-flex align-items-center order-3 order-xl-2 justify-content-center px-0">
+                <div class="d-none txt">
                     <?php
                     while ($hero->get_health() > 0 && $orc->get_health() > 0) {
                         // ! L'orc attaque le héros :
@@ -59,14 +59,14 @@ $orc = new Orc(250, 0);
                         $hero->attacked($orc_attack);
 
                         if ($hero->get_health() > 0) { // condition pour que la rage n'augment pas si le héros n'a plus de points de vie
-                            echo 'Le démon frappe le héros avec une puissance de ' . $orc_attack . '. Les points de vie de l\'ange tombent à ' . $hero->get_health() . ' ! Sa rage augmente à ' . $hero->get_rage() . '.<br><br>';
+                            echo 'Le démon frappe le héros avec une puissance de ' . $orc_attack . '. Les points de vie de l\'ange tombent à ' . $hero->get_health() . ' ! <br> Sa rage augmente à ' . $hero->get_rage() . '.<br><br>';
                         } else {
                             echo 'Le démon frappe le héros avec une puissance de ' . $orc_attack . '. Les points de vie de l\'ange tombent à ' . $hero->get_health() . ' ! <br> <br>';
                         }
 
                         // ! Si le héros n'a plus de points de vie
                         if ($hero->get_health() <= 0) {
-                            echo 'Malgré tous ses efforts, l\'ange succombe à ses blessures !';
+                            echo '<span class="resultTxt">Malgré tous ses efforts, l\'ange succombe à ses blessures !</span>';
                             // $win = 2;
                             $win = "orc";
                             break;
@@ -86,15 +86,15 @@ $orc = new Orc(250, 0);
 
                         // ! Si l'orc n'a plus de points de vie
                         if ($orc->get_health() <= 0) {
-                            echo 'Le démon a ardemment combattu mais il perd finalement le combat !';
+                            echo '<span class="resultTxt">Le démon a ardemment combattu mais il perd finalement le combat !<span>';
                             $win = "hero";
                             break;
                         }
                     }
                     ?>
-                </p>
+                </div>
             </div>
-            <div class="col-6 col-xl-4 p-0 order-2 order-xl-3 character__container">
+            <div class="resize--mobile col-6 col-xl-4 p-0 order-2 order-xl-3 character__container">
                 <video controls class="character__video character__video--orc">
                     <source src="/public/assets/img/orc-resize.mp4" type=video/mp4>
                 </video>

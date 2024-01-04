@@ -3,7 +3,7 @@
 const charactersVideos = document.querySelectorAll('.character__video');
 const playBtn = document.getElementById('playBtn');
 const replayBtn = document.getElementById('replayBtn');
-const gameTxt = document.querySelector('p');
+const gameTxt = document.querySelector('.txt');
 const herosDead = document.getElementById('hero__dead');
 const orcDead = document.getElementById('orc__dead');
 const orcImg = document.querySelector('.character__video--orc');
@@ -50,7 +50,7 @@ playBtn.addEventListener('click', () => {
     setTimeout(() => {
     replayBtn.classList.remove('d-none');
     replayBtn.classList.add('replayBtn__fade-int');
-    }, 6000);
+    }, 8000);
 
 
     // * affiher la tombe du perdant
@@ -58,13 +58,16 @@ playBtn.addEventListener('click', () => {
         if (winner == "orc") {
             herosDead.classList.remove('d-none');
             herosDead.classList.add('dead__fade-int');
-            heroImg.classList.add('d-none');
-            // orcDead.classList.add('d-none');
+            setTimeout(() => {
+                heroImg.classList.add('d-none');
+            }, 5000);
         } else if (winner == "hero"){
             orcDead.classList.remove('d-none');
             orcDead.classList.add('dead__fade-int');
-            orcImg.classList.add('d-none');
-            // herosDead.classList.add('d-none');
+            setTimeout(() => {
+                orcImg.classList.add('d-none');
+                orcImg.classList.add('playBtn__fade-out');
+            }, 4000);
         } 
     }, 6000);
 
