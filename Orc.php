@@ -5,7 +5,7 @@ require_once __DIR__.'/Character.php';
 class Orc extends Character{
 
     // * attributs
-    private float $damage;
+    private int $damage;
 
     // * méthode magique
     public function __construct(int $health, int $rage){
@@ -18,13 +18,13 @@ class Orc extends Character{
 
 
     // * méthodes
-    public function get_damage(): float{
+    public function get_damage(): int{
         return $this->damage;
     }
-    public function set_damage(float $damage){
+    public function set_damage(int $damage){
         $this->damage = $damage;
     }
-    public function attack(): float{
+    public function attack(): int{
         $this->set_damage(rand(600, 800));
         return $this->get_damage();
     }

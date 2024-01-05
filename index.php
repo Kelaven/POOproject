@@ -15,7 +15,7 @@ $orc = new Orc(250, 0);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Descente des ombres</title>
+    <title>Ombres Divines</title>
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <!-- style -->
@@ -28,7 +28,7 @@ $orc = new Orc(250, 0);
     <div class="container">
         <div class="row">
             <div class="col-12 text-center pt-2">
-                <h1>Descente des Ombres</h1>
+                <h1>Ombres Divines</h1>
             </div>
             <div class="col-12 text-center pt-3">
                 <div id="button__container">
@@ -45,11 +45,11 @@ $orc = new Orc(250, 0);
 
     <div class="container-fluid">
         <div class="row text-center pt-3">
-            <div class="resize--mobile col-6 col-xl-4 p-0 order-1 order-xl-1 character__container ps-xl-5">
+            <div class="resize--mobile col-6 col-xl-4 p-0 order-1 order-xl-1 character__container">
                 <video controls class="character__video character__video--hero">
                     <source src="/public/assets/img/heros-resize.mp4" type=video/mp4>
                 </video>
-                <img class="d-none ps-xl-5 ms-xl-1" id="hero__dead" src="/public/assets/img/heros-dead-resize.jpg" alt="pierre tombale de notre héros, RIP">
+                <img class="d-none" id="hero__dead" src="/public/assets/img/heros-dead-resize.jpg" alt="pierre tombale de notre héros, RIP">
             </div>
             <div class="col-12 col-xl-4 d-flex align-items-center order-3 order-xl-2 justify-content-center px-0">
                 <div class="d-none txt">
@@ -60,9 +60,9 @@ $orc = new Orc(250, 0);
                         $hero->attacked($orc_attack);
 
                         if ($hero->get_health() > 0) { // condition pour que la rage n'augment pas si le héros n'a plus de points de vie
-                            echo 'Le démon frappe le héros avec une puissance de ' . $orc_attack . '. Les points de vie de l\'ange tombent à ' . $hero->get_health() . ' ! <br> Sa rage augmente à ' . $hero->get_rage() . '.<br><br>';
+                            echo 'Le démon frappe l\'ange avec une puissance de ' . $orc_attack . '. <br> Les points de vie de l\'ange tombent à ' . $hero->get_health() . ' ! <br> Sa rage augmente à ' . $hero->get_rage() . '.<br><br>';
                         } else {
-                            echo 'Le démon frappe le héros avec une puissance de ' . $orc_attack . '. Les points de vie de l\'ange tombent à ' . $hero->get_health() . ' ! <br> <br>';
+                            echo 'Le démon frappe l\'ange avec une puissance de ' . $orc_attack . '. <br> Les points de vie de l\'ange tombent à ' . $hero->get_health() . ' ! <br> <br>';
                         }
 
                         // ! Si le héros n'a plus de points de vie
@@ -78,10 +78,15 @@ $orc = new Orc(250, 0);
                         if ($hero->get_rage() >= 60) {
                             // ! Le héros attaque l'orc :
                             $orc->set_health($orc->get_health() - $hero->get_weaponDamage());
-                            echo 'L\'ange riposte et frappe à son tour, d\'une puissance de ' . $hero->get_weaponDamage() . ' ! 
-                            Les points de vie du démon tombent à ' . $orc->get_health() . '. <br> <br>';
                             // ! La rage du héros est réinitialisée : 
                             $hero->set_rage(0);
+                            if ($orc->get_health() > 0) {
+                                echo 'L\'ange riposte et frappe à son tour, d\'une puissance de ' . $hero->get_weaponDamage() . ' ! 
+                            Les points de vie du démon tombent à ' . $orc->get_health() . '. <br> La rage de l\'ange passe à ' . $hero->get_rage() . '. <br> <br>';
+                            } else {
+                                echo 'L\'ange riposte et frappe à son tour, d\'une puissance de ' . $hero->get_weaponDamage() . ' ! 
+                            Les points de vie du démon tombent à ' . $orc->get_health() . '. <br> <br>';
+                            }
                         }
 
                         // ! Si l'orc n'a plus de points de vie
@@ -98,14 +103,14 @@ $orc = new Orc(250, 0);
                 <video controls class="character__video character__video--orc">
                     <source src="/public/assets/img/orc-resize.mp4" type=video/mp4>
                 </video>
-                <img class="d-none pe-xl-5 me-xl-3" id="orc__dead" src="/public/assets/img/orc-dead-resize.jpg" alt="pierre tombale de notre orc, RIP">
+                <img class="d-none" id="orc__dead" src="/public/assets/img/orc-dead-resize.jpg" alt="pierre tombale de notre orc, RIP">
             </div>
         </div>
     </div>
 
 
 
-    
+
 
 
 

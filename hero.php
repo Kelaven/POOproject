@@ -7,20 +7,20 @@ class Hero extends Character {
 
     // * création des attributs
     private ?string $weapon; // le ? sert à indiquer que la string peut être null
-    private float $weaponDamage;
+    private int $weaponDamage;
     private ?string $shield;
-    private float $shieldValue;
-    private float $attacked;
+    private int $shieldValue;
+    private int $attacked;
 
     // * méthode magique
     /**
-     * méthode magique pour donner des valeurs aux attributs weapon (string), weaponDamage (float), shield (string), shieldValue (float)
+     * méthode magique pour donner des valeurs aux attributs weapon (string), weaponDamage (int), shield (string), shieldValue (int)
      * @param string $weapon
-     * @param float $weaponDamage
+     * @param int $weaponDamage
      * @param string $shield
-     * @param float $shieldValue
+     * @param int $shieldValue
      */
-    public function __construct(int $health, int $rage, string $weapon, float $weaponDamage, string $shield, float $shieldValue){
+    public function __construct(int $health, int $rage, string $weapon, int $weaponDamage, string $shield, int $shieldValue){
         // accéder à la méthode magique de Caracter.php
         parent::__construct($health, $rage);
         $this->weapon = $weapon;
@@ -40,12 +40,12 @@ class Hero extends Character {
         $this->weapon = $weapon;
     }
     /**
-     * méthode pour donner une valeur à l'attribut weaponDamage (float)
-     * @param float $weaponDamage
+     * méthode pour donner une valeur à l'attribut weaponDamage (int)
+     * @param int $weaponDamage
      * 
      * @return [type]
      */
-    public function set_weaponDamage(float $weaponDamage){
+    public function set_weaponDamage(int $weaponDamage){
         $this->weaponDamage = $weaponDamage;
     }
     /**
@@ -58,12 +58,12 @@ class Hero extends Character {
         $this->shield = $shield;
     }
     /**
-     * méthode pour donner une valur à l'attribut shieldValue (float)
-     * @param float $shieldValue
+     * méthode pour donner une valur à l'attribut shieldValue (int)
+     * @param int $shieldValue
      * 
      * @return [type]
      */
-    public function set_shieldValue(float $shieldValue){
+    public function set_shieldValue(int $shieldValue){
         $this->shieldValue = $shieldValue;
     }
 
@@ -77,10 +77,10 @@ class Hero extends Character {
         return $this->weapon;
     }
     /**
-     * méthode pour lire la valeur de l'attribut weaponDamage (float)
-     * @return float
+     * méthode pour lire la valeur de l'attribut weaponDamage (int)
+     * @return int
      */
-    public function get_weaponDamage(): float{
+    public function get_weaponDamage(): int{
         return $this->weaponDamage;
     }
     /**
@@ -91,10 +91,10 @@ class Hero extends Character {
         return $this->shield;
     }
     /**
-     * méthode pour lire la valeur de l'attribut shieldValue (float)
-     * @return float
+     * méthode pour lire la valeur de l'attribut shieldValue (int)
+     * @return int
      */
-    public function get_shieldValue(): float{
+    public function get_shieldValue(): int{
         return $this->shieldValue;
     }
 
@@ -107,7 +107,7 @@ class Hero extends Character {
 
 
     // * méthode attacked
-    public function attacked(float $attacked){
+    public function attacked(int $attacked){
         $attackedConversion = $this->get_health() - ($attacked - $this->get_shieldValue());
         $this->set_health($attackedConversion);
         $this->set_raged();
